@@ -3,7 +3,11 @@ const { v4: uuidv4 } = require("uuid");
 const salt = 10;
 const virtualClientDataBase = [];
 
-class PostRouter {
+class Account {
+  getAccount(req, res) {
+    return res.status(201).send(virtualClientDataBase);
+  }
+
   createAccount(req, res) {
     const { name, email, password } = req.body;
     const passwordCrypt = bcrypt.hashSync(password, salt);
@@ -26,6 +30,21 @@ class PostRouter {
 
     return res.status(201).send();
   }
+  newBook(req, res) {
+    virtualClientDataBase.map((books) => {
+      const listOfBooks = books.booksList;
+      listOfBooks.push("book1", "book2");
+      return res.status(201).send("Atualização realizada com sucesso.");
+    });
+  }
+
+  delete(req, res) {
+    virtualClientDataBase.map((books) => {
+      const list = books.booksList;
+      list.pop();
+      return res.status(201).send("Livro deletado com sucesso.");
+    });
+  }
 }
 
-module.exports = { PostRouter, virtualClientDataBase };
+module.exports = new Account();
