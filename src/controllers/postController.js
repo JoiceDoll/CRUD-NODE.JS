@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 const salt = 10;
 const virtualClientDataBase = [];
 
-class postRouter {
+class PostRouter {
   createAccount(req, res) {
     const { name, email, password } = req.body;
     const passwordCrypt = bcrypt.hashSync(password, salt);
@@ -28,4 +28,4 @@ class postRouter {
   }
 }
 
-module.exports = { postRouter, virtualClientDataBase };
+module.exports = { PostRouter, virtualClientDataBase };

@@ -1,9 +1,9 @@
 const { virtualClientDataBase } = require("./postController");
 
-class getRouter {
+class GetRouter {
   getAccount(req, res) {
     return res.status(201).send(virtualClientDataBase);
   }
 }
 
-module.exports = new getRouter();
+module.exports = new GetRouter();

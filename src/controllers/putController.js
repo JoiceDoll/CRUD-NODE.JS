@@ -1,6 +1,6 @@
 const { virtualClientDataBase } = require("./postController");
 
-class buyNewBook {
+class PutRouter {
   newBook(req, res) {
     virtualClientDataBase.map((books) => {
       const listOfBooks = books.booksList;
@@ -10,4 +10,4 @@ class buyNewBook {
   }
 }
 
-module.exports = new buyNewBook();
+module.exports = new PutRouter();

@@ -1,6 +1,6 @@
 const { virtualClientDataBase } = require("./postController");
 
-class deleteBooks {
+class DeleteBooks {
   delete(req, res) {
     virtualClientDataBase.map((books) => {
       const list = books.booksList;
@@ -10,4 +10,4 @@ class deleteBooks {
   }
 }
 
-module.exports = new deleteBooks();
+module.exports = new DeleteBooks();
